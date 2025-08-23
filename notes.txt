@@ -1,0 +1,16 @@
+// package always has to be called main because when you create eecutable file this is what go build command will look for.  You can have multiple file with package main
+package main
+
+//imports package fmt with different functions that format text
+import "fmt"
+
+//always chas to be called main for the same reason as package main. you can only have one main function
+func main() {
+	fmt.Print("Hello World!")
+}
+
+//create module
+//$ go mod init example.com/first-app 
+
+//build an executable file
+//$ go build
