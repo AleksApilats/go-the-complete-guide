@@ -38,7 +38,7 @@ func main() {
 	//Sprintf allows you to format and store a string
 
 	formattedFV := fmt.Sprintf("Future Value: %.2f\n", futureValue )
-	formattedFRV := fmt.Sprintf("Future Real Value %.2f\n", futureRealValue)
+	formattedFRV := fmt.Sprintf("Future Real Value %.2f", futureRealValue)
 
 	fmt.Print(formattedFV, formattedFRV)
 	// Output Information
@@ -53,8 +53,8 @@ func outputText(text string) {
 }
 
 //this function accepts three parameters, stores results of calculation in two vars and returns them
-func calculateFutureValues (investmentAmount,expectedReturnRate, years float64) (float64, float64) {
-	fv := investmentAmount * math.Pow(1 + expectedReturnRate / 100, years)
-	frv := fv / math.Pow(1 + inflationRate / 100, years)
+func calculateFutureValues (investmentAmount,expectedReturnRate, years float64) (fv float64, frv float64) {
+	fv = investmentAmount * math.Pow(1 + expectedReturnRate / 100, years)
+	frv = fv / math.Pow(1 + inflationRate / 100, years)
 	return fv, frv
 }
