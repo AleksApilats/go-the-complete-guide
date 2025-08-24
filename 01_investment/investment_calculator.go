@@ -7,8 +7,11 @@ import (
 	"math"
 )
 
+// global variable. moved const inflationRate = 2.5 out of main function because it will stay the same
+const inflationRate = 2.5
+
 func main() {
-	const inflationRate = 2.5
+// scoped variables left in the main function because they have to be set up when main function is sxecuted
 	var investmentAmount float64
 	var years float64
 	expectedReturnRate := 5.5
@@ -27,13 +30,16 @@ func main() {
 
 	fmt.Println("Inflation Rate:", inflationRate)
 
-	futureValue := investmentAmount * math.Pow(1 + expectedReturnRate / 100, years)
-	futureRealValue := futureValue / math.Pow(1 + inflationRate / 100, years)
+	// futureValue := investmentAmount * math.Pow(1 + expectedReturnRate / 100, years)
+	// futureRealValue := futureValue / math.Pow(1 + inflationRate / 100, years)
+	//here we can function and store two returned values in two variables
+	futureValue, futureRealValue := calculateFutureValues(investmentAmount, expectedReturnRate, inflationRate )
 
 	//Sprintf allows you to format and store a string
 
 	formattedFV := fmt.Sprintf("Future Value: %.2f\n", futureValue )
 	formattedFRV := fmt.Sprintf("Future Real Value %.2f\n", futureRealValue)
+
 	fmt.Print(formattedFV, formattedFRV)
 	// Output Information
 	// fmt.Println("Future Value:", futureValue)
@@ -44,4 +50,11 @@ func main() {
 
 func outputText(text string) {
 	fmt.Print(text)
+}
+
+//this function accepts three parameters, stores results of calculation in two vars and returns them
+func calculateFutureValues (investmentAmount,expectedReturnRate, years float64) (float64, float64) {
+	fv := investmentAmount * math.Pow(1 + expectedReturnRate / 100, years)
+	frv := fv / math.Pow(1 + inflationRate / 100, years)
+	return fv, frv
 }
