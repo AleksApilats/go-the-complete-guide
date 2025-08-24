@@ -13,13 +13,16 @@ func main() {
 	var years float64
 	expectedReturnRate := 5.5
 
-	fmt.Print("Investment Amount: ")
+	// fmt.Print("Investment Amount: ")
+	outputText("Investment Amount: ")
 	fmt.Scan(&investmentAmount)
 
-	fmt.Print("Years: ")
+	// fmt.Print("Years: ")
+	outputText("Years: ")
 	fmt.Scan(&years)
 
-	fmt.Print("Expected Return Rate: ")
+	// fmt.Print("Expected Return Rate: ")
+	outputText("Expected Return Rate: ")
 	fmt.Scan(&expectedReturnRate)
 
 	fmt.Println("Inflation Rate:", inflationRate)
@@ -37,4 +40,8 @@ func main() {
 	// fmt.Println("Future Real Value:", futureRealValue)
 	// Printf allows you to format and print a string
 	//fmt.Printf("Future Value: %.2f\nFuture Real Value: %.2f", futureValue, futureRealValue)
+}
+
+func outputText(text string) {
+	fmt.Print(text)
 }
